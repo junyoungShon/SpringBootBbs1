@@ -1,0 +1,49 @@
+
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Spring Boot and Thymeleaf - Hello World!</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" th:href="@{/static/bootstrap/dist/css/bootstrap.min.css}"/>
+    <script th:src="@{/static/jquery/dist/jquery.min.js}"></script>
+
+
+</head>
+<body>
+<h1>Write</h1>
+<table class="table">
+    <form action="write" name="post" method="post">
+
+        <tr>
+            <td style="width:11%"><label class="col-sm-2 control-label">Title</label></td>
+            <td style="width:63%">
+                <div class="form-group">
+                    <input type="text"  class="form-control" name="subject"/>
+                </div>
+            </td>
+            <td style="width:11%"><label class="col-sm-2 control-label">Password</label></td>
+            <td style="width:15%">
+                <div class="form-group">
+                    <input type="password" class="form-control" name="password"/>
+                </div>
+            </td>
+
+        </tr>
+        <tr>
+            <td colspan="4">
+                <textarea class="form-control" rows="20" name="contents"></textarea>
+            </td>
+
+        </tr>
+        <tr>
+            <td colspan="3">
+
+            </td>
+            <td>
+                <button type="submit" class="btn btn-danger btn-block">Submit</button>
+            </td>
+        </tr>
+    </form>
+</table>
+</body>
+</html>

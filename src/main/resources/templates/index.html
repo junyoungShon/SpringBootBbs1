@@ -1,0 +1,67 @@
+
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Spring Boot and Thymeleaf - Hello World!</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" th:href="@{/static/bootstrap/dist/css/bootstrap.min.css}"/>
+    <script th:src="@{/static/jquery/dist/jquery.min.js}"></script>
+
+
+</head>
+<body>
+    <!--/*@thymesVar id="postList" type="postList"*/-->
+    <table class="table">
+        <thead>
+            <tr>
+                <th>title</th>
+                <th>contents</th>
+                <th>date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="post : ${postList}">
+                <td th:text="${post.subject}">머야 </td>
+
+                <td th:text="${post.contents}"><a th:href="post/${post.id}">내용이냐</a></td>
+                <td th:text="${#calendars.format(post.regDate,'yyyy MM dd')}">이것은!</td>
+            </tr>
+        </tbody>
+    </table>
+    <nav class="text-center">
+        <ul class="pagination">
+            <li>
+                <a href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li>
+                <a href="#" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <div class="row" style="width:60%;margin:0 auto">
+
+
+
+        <div class="col-lg-6">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search for..."/>
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="button">Go!</button>
+          <a class="btn btn-danger" href="writePage">Write</a>
+      </span>
+
+            </div><!-- /input-group -->
+        </div><!-- /.col-lg-6 -->
+    </div><!-- /.row -->
+
+</body>
+</html>

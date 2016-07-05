@@ -1,0 +1,47 @@
+
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Spring Boot and Thymeleaf - Hello World!</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" th:href="@{/static/bootstrap/dist/css/bootstrap.min.css}"/>
+    <script th:src="@{/static/jquery/dist/jquery.min.js}"></script>
+
+
+</head>
+<body>
+<h1>Write</h1>
+<table class="table">
+    <form action="write" name="post" method="post">
+
+        <tr>
+            <td style="width:11%"><label class="col-sm-2 control-label">Title</label></td>
+            <td style="width:63%">
+                <!--/*@thymesVar id="subject" type="String"*/-->
+                <p th:text="${postDetail.subject}"></p>
+            </td>
+            <td style="width:13%"><label class="col-sm-2 control-label">Date</label></td>
+
+            <td style="width:13%" th:text="${#calendars.format(postDetail.regDate,'yyyy MM dd')}">
+            </td>
+
+        </tr>
+        <tr>
+            <td colspan="4">
+                <P th:text="${postDetail.contents}"></P>
+            </td>
+
+        </tr>
+        <tr>
+            <td></td>
+            <td colspan="3">
+                <a class="btn btn-default" href="../post/list">List</a>
+                <a class="btn btn-default" href="../post/update">Update</a>
+                <a type="button" class="btn btn-danger" th:href="@{../post/delete/${postDetail.id}}">Delete</a>
+            </td>
+        </tr>
+
+    </form>
+</table>
+</body>
+</html>
